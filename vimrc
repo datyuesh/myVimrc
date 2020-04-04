@@ -17,6 +17,7 @@ set cindent
 set ruler
 set magic
 set showmatch
+set incsearch                                   " 在搜索时，输入的词句的逐字高亮
 set hlsearch
 set cursorline                                  " 光标行
 set cursorcolumn                                " 光标列
@@ -81,13 +82,13 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 " 多行编辑
 highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
 highlight link multiple_cursors_visual Visual
-let g:multi_cursor_start_word_key      = '<C-n>'    " 选中后按 ctrl + n 竖直编辑
+let g:multi_cursor_start_word_key      = '<C-n>'    " 选中后, 可使用普通命令c s I A v
 let g:multi_cursor_select_all_word_key = '<A-n>'
 let g:multi_cursor_start_key           = 'g<C-n>'
 let g:multi_cursor_select_all_key      = 'g<A-n>'
-let g:multi_cursor_next_key            = '<C-n>'
-let g:multi_cursor_prev_key            = '<C-p>'
-let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_next_key            = '<C-n>'    " 选中下一个
+let g:multi_cursor_prev_key            = '<C-p>'    " 取消选中当前,并选中上一个
+let g:multi_cursor_skip_key            = '<C-x>'    " 跳过选中
 let g:multi_cursor_quit_key            = '<Esc>'
 
 " airline 漂亮的底栏
