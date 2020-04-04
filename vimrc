@@ -28,7 +28,6 @@ set ignorecase
 set autoindent
 set cindent
 set foldenable                                  " 允许折叠
-"set mouse=a                                    " 使用鼠标
 set tabstop=4	                                " 4空格替换一个tab
 set shiftwidth=4	                            " 自动缩进4
 set softtabstop=4	                            " 自动缩进4
@@ -44,6 +43,11 @@ set backspace=indent,eol,start                  " 设置退格删除
 set guifont=Courier_New:h9:cANSI
 set clipboard+=unnamed                          " 共享粘贴板
 
+" 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
+"set mouse=a
+"set selection=exclusive
+"set selectmode=mouse,key
+
 let g:go_version_warning = 0                    " 去除版本信息警告
 
 call vundle#begin()
@@ -56,10 +60,25 @@ Plugin 'tpope/vim-fugitive'                     " github 操作
 Plugin 'scrooloose/nerdtree'                    " 侧边栏文件
 Plugin 'szw/vim-tags'                           " ctags 生成
 Plugin 'c.vim'                                  " c 语言插件
+Plugin 'taglist.vim'							" vim-scripts 中的插件
+"Plugin 'The-NERD-tree'                          " 目录树插件
 call vundle#end()
 nnoremap <C-c> :call multiple_cursors#quit()<CR>
 highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
 filetype plugin indent on
+
+" 目录树插件
+"NERDTree 配置:F2快捷键显示当前目录树
+"map <F2> :NERDTreeToggle<CR>
+"let NERDTreeWinSize=25
+
+" vim-scripts 中的插件
+" ctags 配置:F3 快捷键显示程序中的各种ctags,包括函数名/变量等
+map <F3> :TlistToggle<CR>
+let Tlist_Use_Right_Window=1
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_WinWidt=25
 
 " c 语言插件
 let g:C_UseTool_cmake = 'no'
